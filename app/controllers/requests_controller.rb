@@ -12,15 +12,18 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
+    binding.pry
     @request = Request.new
+    user_id=current_user.id
   end
 
   # GET /requests/1/edit
   def edit
   end
 
-  # POST /requests
+  # POST /requestsi
   def create
+
     @request = Request.new(request_params)
 
     if @request.save
@@ -53,6 +56,7 @@ class RequestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def request_params
-      params.require(:request).permit(:user_id_id, :title, :description)
+      params.require(:request).permit(:user_id, :title, :description)
     end
 end
+

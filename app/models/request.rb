@@ -1,4 +1,4 @@
 class Request < ActiveRecord::Base
-  belongs_to :user_id
+  belongs_to :users
   has_many :offers
 end
