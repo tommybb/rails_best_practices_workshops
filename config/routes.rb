@@ -1,8 +1,10 @@
 RailsBestPracticesWorkshops::Application.routes.draw do
+
+  devise_for :users
+  root 'requests#index'
+
   resources :offers
-
   resources :requests
-
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
