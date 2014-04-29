@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :tender do
-    user_id nil
+    user_id 1
     title "MyText"
     description "MyText"
   end
