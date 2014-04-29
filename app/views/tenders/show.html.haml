@@ -9,8 +9,10 @@
 
 %dl.dl-horizontal
   %dt User:
-  %dd= @tender.user_id
+  %dd= @tender.user.name
   %dt Title:
   %dd= @tender.title
   %dt Description:
   %dd= @tender.description
+  %dt Created_at
+  %dd= @tender.created_at.to_date

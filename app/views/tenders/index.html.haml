@@ -26,6 +26,6 @@
           %td= tender.created_at
           %td= tender.offers.count
           %td= link_to 'Show', tender
-          %td= link_to 'Edit', edit_tender_path(tender)
-          %td= link_to 'Destroy', tender, :data => { confirm: 'Are you sure?' }, :method => :delete
+          %td= tender.user_id == current_user.id ? (link_to 'Edit', edit_tender_path(tender)) : ''
+          %td= tender.user_id == current_user.id ? (link_to 'Destroy', tender, :data => { confirm: 'Are you sure?' }, :method => :delete) : ''
 = paginate @tenders
