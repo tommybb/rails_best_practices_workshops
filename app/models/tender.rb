@@ -1,4 +1,4 @@
-class Request < ActiveRecord::Base
+class Tender < ActiveRecord::Base
   belongs_to :users
   has_many :offers
 end

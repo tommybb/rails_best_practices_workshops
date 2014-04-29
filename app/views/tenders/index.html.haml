@@ -1,0 +1,31 @@
+.page-header
+  = link_to new_tender_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Tender
+  %h1 Listing tenders
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th User
+        %th Title
+        %th Description
+        %th Created_at
+        %th Offers
+        %th
+        %th
+        %th
+
+    %tbody
+      - @tenders.each do |tender|
+        %tr
+          %td= tender.user_id
+          %td= tender.title
+          %td= tender.description
+          %td= tender.created_at
+          %td= tender.offers.count
+          %td= link_to 'Show', tender
+          %td= link_to 'Edit', edit_tender_path(tender)
+          %td= link_to 'Destroy', tender, :data => { confirm: 'Are you sure?' }, :method => :delete
+= paginate @tenders

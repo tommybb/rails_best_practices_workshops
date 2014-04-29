@@ -1,4 +1,4 @@
 class Offer < ActiveRecord::Base
-  belongs_to :user_id
-  belongs_to :request
+  belongs_to :user
+  belongs_to :tender
 end

@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426094158) do
+ActiveRecord::Schema.define(version: 20140429181923) do
 
   create_table "offers", force: true do |t|
-    t.integer  "user_id_id"
+    t.integer  "user_id"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "request_id"
+    t.integer  "tender_id"
   end
 
-  add_index "offers", ["request_id"], name: "index_offers_on_request_id"
-  add_index "offers", ["user_id_id"], name: "index_offers_on_user_id_id"
+  add_index "offers", ["tender_id"], name: "index_offers_on_tender_id"
+  add_index "offers", ["user_id"], name: "index_offers_on_user_id"
 
   create_table "requests", force: true do |t|
     t.integer  "user_id"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20140426094158) do
   end
 
   add_index "requests", ["user_id"], name: "index_requests_on_user_id"
+
+  create_table "tenders", force: true do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tenders", ["user_id"], name: "index_tenders_on_user_id"
 
   create_table "users", force: true do |t|
     t.text     "email"

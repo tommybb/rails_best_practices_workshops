@@ -1,7 +1,9 @@
 RailsBestPracticesWorkshops::Application.routes.draw do
 
+  resources :tenders
+
   devise_for :users
-  root 'requests#index'
+  root 'tenders#index'
 
   resources :offers
   resources :requests
