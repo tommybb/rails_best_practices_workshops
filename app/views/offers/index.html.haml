@@ -17,7 +17,7 @@
     %tbody
       - @offers.each do |offer|
         %tr
-          %td= offer.user_id
+          %td= offer.user.name
           %td= offer.message
           %td= link_to 'Show', offer
           %td= link_to 'Edit', edit_offer_path(offer)

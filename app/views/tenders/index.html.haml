@@ -22,7 +22,7 @@
     %tbody
       - @tenders.each do |tender|
         %tr
-          %td= tender.user_id
+          %td= tender.user.name
           %td= tender.title
           %td= tender.description
           %td= tender.created_at

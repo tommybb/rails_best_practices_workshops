@@ -16,3 +16,20 @@
   %dd= @tender.description
   %dt Created_at
   %dd= @tender.created_at.to_date
+  %br
+  %h3 Offers
+  %hr
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th User
+        %th Message
+        %th
+
+    %tbody
+      - @tender.offers.each do |offer|
+        %tr
+          %td= offer.user.name
+          %td= offer.message
+          %td= link_to 'Show', offer
