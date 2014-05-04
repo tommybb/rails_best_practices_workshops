@@ -9,8 +9,8 @@
           %li= msg
 
   .form-group
-    = f.input :user_id, :class => 'col-sm-2 control-label'
     = f.input :message, :class => 'col-sm-2 control-label'
+    = f.input :tender_id, as: :hidden
 
   .form-group
     .col-sm-offset-2.col-sm-10

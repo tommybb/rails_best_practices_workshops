@@ -16,6 +16,8 @@
         %th
         %th
         %th
+        %th
+        %th
 
     %tbody
       - @tenders.each do |tender|
@@ -28,4 +30,6 @@
           %td= link_to 'Show', tender
           %td= tender.user_id == current_user.id ? (link_to 'Edit', edit_tender_path(tender)) : ''
           %td= tender.user_id == current_user.id ? (link_to 'Destroy', tender, :data => { confirm: 'Are you sure?' }, :method => :delete) : ''
+          %td= tender.user_id != current_user.id ? (link_to 'Make offer', new_offer_path(:tender_id => tender.id)) : ''
+          %td= tender.offers.count > 0 ? (link_to 'Show offers', offers_path) : ''
 = paginate @tenders

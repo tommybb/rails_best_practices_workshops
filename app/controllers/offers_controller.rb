@@ -13,6 +13,7 @@ class OffersController < ApplicationController
   # GET /offers/new
   def new
     @offer = Offer.new
+    @offer.tender_id=params[:tender_id]
   end
 
   # GET /offers/1/edit
@@ -22,6 +23,7 @@ class OffersController < ApplicationController
   # POST /offers
   def create
     @offer = Offer.new(offer_params)
+    @offer.user_id=current_user.id
 
     if @offer.save
       redirect_to @offer, notice: 'Offer was successfully created.'
@@ -53,6 +55,6 @@ class OffersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def offer_params
-      params.require(:offer).permit(:user_id, :message)
+      params.require(:offer).permit(:user_id, :message, :tender_id)
     end
 end
