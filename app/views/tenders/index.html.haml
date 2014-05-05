@@ -20,7 +20,7 @@
         %th
 
     %tbody
-      - @tenders.each do |tender|
+      - tenders.each do |tender|
         %tr
           %td= tender.user.name
           %td= tender.title
@@ -32,4 +32,4 @@
           %td= tender.user_id == current_user.id ? (link_to 'Destroy', tender, :data => { confirm: 'Are you sure?' }, :method => :delete) : ''
           %td= tender.user_id != current_user.id ? (link_to 'Make offer', new_offer_path(:tender_id => tender.id)) : ''
           %td= tender.offers.count > 0 ? (link_to 'Show offers', offers_path) : ''
-= paginate @tenders
+//= paginate filtered_tenders
