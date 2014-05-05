@@ -1,6 +1,8 @@
 class TendersController < ApplicationController
   before_action :set_tender, only: [:show, :edit, :update, :destroy]
 
+  expose(:tender, attributes: :tender_params)
+
   # GET /tenders
   def index
     @tenders = Tender.order(:created_at).page params[:page]
